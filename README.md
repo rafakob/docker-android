@@ -1,11 +1,13 @@
 # Docker - Android
+#### Specification:
+- **Built from:** Ubuntu 14.04
+- **Java:** Oracle 8
+- **Android SDK:** 24.4.1
+- **Includes:**
+ - **Platforms**: API15 - API23
+ - **Build-tools:** all non-obsolete
+ - **Tools:** other necessary Android tools
 
-Built from: Ubuntu 14.04
-
-Android SDK: 24.4.1
-Includes:
- - API: 15-23
- - Build-tools: all non-obsolete
- - other necessary Android tools
-
- Prepared to work with Jenkins.
+```sh
+docker pull rafakob/android
+```
