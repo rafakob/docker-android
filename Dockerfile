@@ -31,6 +31,6 @@ RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     apt-get autoremove -y && apt-get clean
 
 # Setup worksapce
-ENV SHELL /bin/bash
+ENV SHELL=/bin/bash TERM=dumb
 RUN mkdir /opt/worksapce
 WORKDIR /opt/workspace
