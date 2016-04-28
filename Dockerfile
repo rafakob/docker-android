@@ -20,16 +20,16 @@ ENV ANDROID_SDK /opt/android-sdk-linux
 ENV PATH ${ANDROID_HOME}/tools:$ANDROID_HOME/platform-tools:$PATH
 
 # Android components
-RUN echo y | android update sdk --no-ui --all --filter \
+RUN echo y | android update sdk --no-ui --all --filter && \
     addon-google_apis-google-23,addon-google_apis-google-22,addon-google_apis-google-21
   
-RUN echo y | android update sdk --no-ui --all --filter \
+RUN echo y | android update sdk --no-ui --all --filter && \
     android-23,android-22,android-21,android-20,android-19,android-18,android-17,android-16,android-15
 
-RUN echo y | android update sdk --no-ui --all --filter \
+RUN echo y | android update sdk --no-ui --all --filter && \
     tools,build-tools-23.0.3,build-tools-23.0.2,build-tools-23.0.1,build-tools-22.0.1,build-tools-21.1.2,build-tools-20.0.0,build-tools-19.1.0
 
-RUN echo y | android update sdk --no-ui --all --filter \
+RUN echo y | android update sdk --no-ui --all --filter && \
     platform-tools,extra-android-m2repository,extra-google-m2repository,extra-android-support,extra-google-google_play_services
 
 # Emulator
