@@ -8,11 +8,12 @@ RUN apt-get install -yq libc6-i386 lib32stdc++6 lib32gcc1 lib32ncurses5 lib32z1 
 # JAVA 8
 RUN echo y | apt-get install openjdk-8-jdk
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
+ENV PATH $JAVA_HOME/bin:$PATH
 
 # ANDROID SDK
 RUN curl -L "http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz" | tar --no-same-owner -xz -C /opt
 ENV ANDROID_HOME /opt/android-sdk-linux
-ENV PATH ${ANDROID_HOME}/tools:$ANDROID_HOME/platform-tools:$PATH
+ENV PATH $ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
 
 # ANDROID COMPONENTS
 RUN echo y | android update sdk --no-ui --all --filter \
