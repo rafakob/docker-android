@@ -17,19 +17,24 @@ ENV PATH $ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
 
 # ANDROID COMPONENTS
 RUN echo y | android update sdk --no-ui --all --filter \
+    platform-tools,extra-android-support
+  
+RUN echo y | android update sdk --no-ui --all --filter \
     addon-google_apis-google-23
     
 RUN echo y | android update sdk --no-ui --all --filter \
-    android-23
+    android-N,android-23
 
 RUN echo y | android update sdk --no-ui --all --filter \
-    tools,build-tools-23.0.3,build-tools-23.0.2,build-tools-23.0.1
+    tools,build-tools-24.0.0-preview,build-tools-23.0.3,build-tools-23.0.2,build-tools-23.0.1
 
 RUN echo y | android update sdk --no-ui --all --filter \
-    platform-tools,extra-android-m2repository,extra-google-m2repository,extra-android-support,extra-google-google_play_services
+    extra-android-m2repository,extra-google-m2repository,extra-google-google_play_services
+
 
 # CLEAN UP
-RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && apt-get autoremove -y && apt-get clean
+# RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && apt-get autoremove -y && apt-get clean
+RUN apt-get clean
 
 # SETUP WORKSPACE
 ENV SHELL=/bin/bash TERM=dumb
